@@ -9,9 +9,8 @@ const circle = {
   keliling: function () {
     return 2 * this.PI * this.r;
   },
-  ringkasan: function () {
-    return `Luas: ${this.luas()}, Keliling: ${this.keliling()}`;
-  },
+  ringkasan: (obj = circle) =>
+    `Luas: ${obj.luas()}, Keliling: ${obj.keliling()}`,
 };
 
 console.log(circle.ringkasan());
