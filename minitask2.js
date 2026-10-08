@@ -1,7 +1,3 @@
-// * Combine (Penggabungan Data): Menggabungkan object dataPembeli dan detailPesanan menjadi satu object baru bernama fakturPembayaran menggunakan Spread Operator, sekaligus menambahkan properti baru statusPembayaran: "Lunas".
-
-// * Extract (Ekstraksi Data): Mengambil spesifik properti nama, email, dan totalHarga dari object fakturPembayaran menggunakan Destructuring.
-
 const dataPembeli = {
   name: "Bando",
   email: "bando@gmail.com",
@@ -32,12 +28,6 @@ const newFakturPembayaran = {
 
 const { totalHarga } = newFakturPembayaran;
 
-const formatedIDR = Intl.NumberFormat("id-ID", {
-  style: "currency",
-  currency: "IDR",
-  minimumFractionDigits: 0,
-}).format(totalHarga);
-
 console.log(
-  `Struk dicetak untuk ${name} (${email}) dengan total tagihan ${formatedIDR}`,
+  `Struk dicetak untuk ${name} (${email}) dengan total tagihan  Rp ${totalHarga.toLocaleString("id-ID")},-`,
 );
