@@ -3,8 +3,14 @@
 
 const PI = 3.14;
 
-function calculateCircle(r, cb) {
-  return cb(r);
+function calculateCircle(r, cb, cba) {
+  const isCalculateLuas = false;
+
+  if (isCalculateLuas) {
+    return cb(r);
+  } else {
+    return cba(r);
+  }
 }
 
 function luas(numb) {
@@ -17,5 +23,4 @@ function keliling(numb) {
   return `Keliling: ${K}`;
 }
 
-console.log(calculateCircle(5, luas));
-console.log(calculateCircle(5, keliling));
+console.log(calculateCircle(5, luas, keliling));

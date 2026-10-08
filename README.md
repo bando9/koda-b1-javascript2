@@ -60,8 +60,31 @@ flowchart TD
 
   start((Start))
 
-  calculate["calculateCircle (r,cb)"]
+  calculate["calculateCircle (r,cb,cba); PI=3,14; !isCalculateLuas; r=5"]
 
-  finish(((finish)))
+  start --> calculate
+
+    checkLuas{"isCalculateLuas?"}
+    calculate-->checkLuas
+
+    luas["luas(numb); numb=r"]
+    printLuas[/print L/]
+
+    checkLuas-- YES -->luas
+    luas -->printLuas
+
+    finish(((finish)))
+    printLuas -->finish
+
+    keliling["keliling(numb); numb=r"]
+    printKeliling[/print keliling/]
+
+    checkLuas-- NO -->keliling
+    keliling -->printKeliling
+
+    printKeliling-->finish
+
+
+
 
 ```
