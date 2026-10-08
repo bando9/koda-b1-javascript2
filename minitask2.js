@@ -12,22 +12,28 @@ const detailPesanan = {
   quantity: 3,
 };
 
-const fakturPembayaran = {
+let fakturPembayaran = {
   ...dataPembeli,
   ...detailPesanan,
   statusPembayaran: "Lunas",
+  totalHarga: null,
 };
 
-const { name, email, price, quantity } = fakturPembayaran;
-const totalPrice = price * quantity;
+let { name, email, price, quantity, totalHarga } = fakturPembayaran;
 
-const newFakturPembayaran = {
-  ...fakturPembayaran,
-  totalHarga: totalPrice,
-};
+totalHarga = calculateTotalPrice(price, quantity);
 
-const { totalHarga } = newFakturPembayaran;
+fakturPembayaran = { ...fakturPembayaran, totalHarga };
 
-console.log(
-  `Struk dicetak untuk ${name} (${email}) dengan total tagihan  Rp ${totalHarga.toLocaleString("id-ID")},-`,
-);
+showFakturPembayaran(name, email, totalHarga);
+
+// * Function
+function showFakturPembayaran(name, email, totalHarga) {
+  console.log(
+    `Struk dicetak untuk ${name} (${email}) dengan total tagihan  Rp ${totalHarga.toLocaleString("id-ID")},-`,
+  );
+}
+
+function calculateTotalPrice(price, quantity) {
+  return price * quantity;
+}
